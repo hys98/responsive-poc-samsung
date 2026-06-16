@@ -123,7 +123,7 @@ body{background:var(--ax-canvas);color:var(--ax-text-primary);font:var(--ax-body
 .nav-badge{margin-left:auto;font:600 13px/1 var(--ax-font-mono);letter-spacing:0.06em;
   color:rgba(255,255,255,0.30);background:rgba(255,255,255,0.06);
   border:1px solid rgba(255,255,255,0.10);border-radius:var(--ax-radius-xs);padding:var(--ax-space-1) var(--ax-space-2)}
-.sb-status{margin-top:auto;padding:var(--ax-space-7) var(--ax-space-8);border-top:1px solid rgba(120,144,188,0.12);flex-shrink:0}
+.sb-status{margin-top:auto;padding:var(--ax-space-7) var(--ax-space-8);flex-shrink:0}
 .sb-status .status-row{display:flex;align-items:center;gap:var(--ax-space-3);
   font:500 13px/1.4 var(--ax-font-sans);color:rgba(255,255,255,0.55)}
 .sb-status .status-time{font:var(--ax-mono-badge);color:rgba(255,255,255,0.28);margin-top:var(--ax-space-5)}
@@ -169,9 +169,8 @@ html[data-theme="dark"] .icon-sun{display:block}
    CONTENT SCROLL + PAGE PANELS
 ═══════════════════════════════════════════════════ */
 .content-scroll{flex:1;overflow-y:auto;overflow-x:hidden;
-  scrollbar-width:thin;scrollbar-color:rgba(120,144,188,0.2) transparent}
-.content-scroll::-webkit-scrollbar{width:6px}
-.content-scroll::-webkit-scrollbar-thumb{background:rgba(120,144,188,0.2);border-radius:var(--ax-radius-xs)}
+  scrollbar-width:none;-ms-overflow-style:none}
+.content-scroll::-webkit-scrollbar{display:none}
 .page-panel{padding:var(--ax-gutter-y) var(--ax-gutter-x) var(--ax-space-32);min-height:100%;display:none}
 
 /* ─── Mobile nav (hamburger + off-canvas) · #7 ─── */
@@ -567,8 +566,6 @@ html:not([data-theme="dark"]) .nav-item[data-active="true"]{
   background:var(--ax-surface-2);color:var(--ax-text-primary)}
 html:not([data-theme="dark"]) .nav-badge{
   color:var(--ax-text-muted);background:var(--ax-surface-2);border-color:var(--ax-border)}
-html:not([data-theme="dark"]) .sb-status{
-  border-top-color:var(--ax-border)}
 html:not([data-theme="dark"]) .status-row{
   color:var(--ax-text-secondary)}
 html:not([data-theme="dark"]) .status-time{
@@ -639,7 +636,7 @@ html[data-theme="dark"] .sector-redesign{
 .sector-redesign .biz-bigcard-sub{font:var(--ax-mono-section);letter-spacing:var(--ax-tracking-section);color:var(--ax-text-muted)}
 .sector-redesign .sector-tab-select{position:relative;display:none;align-items:center;height:34px;width:100%;border:1px solid var(--ax-border);border-radius:var(--ax-radius-sm);background:var(--ax-surface);transition:border-color .15s,box-shadow .15s}
 .sector-redesign .sector-tab-select:focus-within{border-color:var(--ax-blue-500);box-shadow:0 0 0 3px rgba(59,130,246,0.18)}
-.sector-redesign .sector-tab-select select{appearance:none;-webkit-appearance:none;border:none;outline:none;background:transparent;cursor:pointer;height:100%;width:100%;padding:0 30px 0 12px;font:500 13px/1 var(--ax-font-sans);color:var(--ax-text-primary)}
+.sector-redesign .sector-tab-select select{appearance:none;-webkit-appearance:none;border:none;outline:none;background:transparent;cursor:pointer;height:100%;width:100%;padding:0 var(--ax-space-16) 0 var(--ax-space-6);font:500 13px/1 var(--ax-font-sans);color:var(--ax-text-primary)}
 .sector-redesign .sector-tab-select select option{background:var(--ax-surface);color:var(--ax-text-primary)}
 .sector-redesign .sector-tab-select-chev{position:absolute;right:10px;pointer-events:none;color:var(--ax-text-muted)}
 @media (max-width:759px){
@@ -1455,7 +1452,7 @@ html[data-theme="dark"] .ticker-hero .form-pill{background:rgba(255,255,255,0.07
 }
 .ind-tab-select{position:relative;display:none;align-items:center;height:34px;width:100%;border:1px solid var(--ax-border);border-radius:var(--ax-radius-sm);background:var(--ax-surface);transition:border-color .15s,box-shadow .15s}
 .ind-tab-select:focus-within{border-color:var(--ax-blue-500);box-shadow:0 0 0 3px rgba(59,130,246,0.18)}
-.ind-tab-select select{appearance:none;-webkit-appearance:none;border:none;outline:none;background:transparent;cursor:pointer;height:100%;width:100%;padding:0 30px 0 12px;font:500 13px/1 var(--ax-font-sans);color:var(--ax-text-primary)}
+.ind-tab-select select{appearance:none;-webkit-appearance:none;border:none;outline:none;background:transparent;cursor:pointer;height:100%;width:100%;padding:0 var(--ax-space-16) 0 var(--ax-space-6);font:500 13px/1 var(--ax-font-sans);color:var(--ax-text-primary)}
 .ind-tab-select select option{background:var(--ax-surface);color:var(--ax-text-primary)}
 .ind-tab-select-chev{position:absolute;right:10px;pointer-events:none;color:var(--ax-text-muted)}
 @media (max-width:759px){
@@ -1468,6 +1465,50 @@ html[data-theme="dark"] .ticker-hero .form-pill{background:rgba(255,255,255,0.07
 @media (max-width:759px){
   .sector-redesign .ind-tabbar, .business-redesign .ind-tabbar{margin:var(--ax-space-8) 0}
 }
+
+/* ===== 제품 포트폴리오(page-06) · pf2 트리 · #page-06 스코프 ===== */
+#page-06 .sector-redesign .ft-cnt{font:600 13px/1 var(--ax-font-mono);letter-spacing:0.02em;color:var(--ax-text-muted)}
+#page-06 .sector-redesign .filter-tab.active .ft-cnt{color:var(--ax-text-primary)}
+#page-06 .business-redesign .ft-cnt{font:600 13px/1 var(--ax-font-mono);letter-spacing:0.02em;color:var(--ax-text-muted)}
+#page-06 .business-redesign .filter-tab.active .ft-cnt{color:var(--ax-text-primary)}
+#page-06 .pf-aibrow{ display:flex; align-items:center; gap:9px; margin-bottom:10px }
+#page-06 .pf-aibrow .ai-badge{ margin-bottom:0 }
+#page-06 .pf2-bizhead{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:var(--ax-space-8) }
+#page-06 .pf2-filter{ display:inline-flex; padding:3px; gap:2px; background:var(--ax-surface-2); border:1px solid var(--ax-border); border-radius:100px }
+#page-06 .pf2-fbtn{ all:unset; cursor:pointer; padding:5px 13px; border-radius:100px; font:var(--ax-mono-badge); letter-spacing:.03em; color:var(--ax-text-muted) }
+#page-06 .pf2-fbtn.on{ color:var(--ax-text-inverse); background:var(--ax-blue-500) }
+#page-06 .pf2-segbox{ background:none; border:none; border-radius:0; padding:0; margin:0 0 22px }
+#page-06 .pf2-segbox-desc{ margin:0 0 14px; font:var(--ax-title-lg); color:var(--ax-text-primary) }
+#page-06 .pf2-segbox-ev{ margin-top:6px; font:400 13.5px/1.65 var(--ax-font-sans); color:var(--ax-text-secondary); font-style:italic; padding:9px 13px; background:var(--ax-surface-2); border-left:2px solid var(--ax-blue-100); border-radius:0 var(--ax-radius-sm) var(--ax-radius-sm) 0 }
+#page-06 .pf2-segbox-ev.re{ font-style:normal; border-left-color:var(--ax-border) }
+#page-06 .pf2-segbox-ev .l{ display:inline-block; font:600 11px/1 var(--ax-font-mono); font-style:normal; text-transform:uppercase; letter-spacing:.06em; color:var(--ax-text-muted); margin-right:8px }
+#page-06 .pf2-node{ border-top:1px solid var(--ax-border-sub) }
+#page-06 .pf2-node:first-of-type{ border-top:none }
+#page-06 .pf2-node .pf2-node{ border-top:1px solid var(--ax-border-sub) }
+#page-06 .pf2-row{ all:unset; box-sizing:border-box; cursor:pointer; width:100%; display:flex; align-items:center; gap:9px; padding:11px 2px; color:var(--ax-text-muted) }
+#page-06 .pf2-chev{ flex-shrink:0; color:var(--ax-text-muted); transition:transform .18s var(--ax-ease) }
+#page-06 .pf2-node.open > .pf2-row .pf2-chev{ transform:rotate(90deg) }
+#page-06 .pf2-dim{ flex-shrink:0; font:600 11px/1 var(--ax-font-mono); letter-spacing:.04em; border-radius:100px; padding:3px 8px; border:1px solid }
+#page-06 .pf2-dim.d-segment{ color:var(--ax-text-primary); background:var(--ax-surface-2); border-color:var(--ax-border) }
+#page-06 .pf2-dim.d-therapeutic_area{ color:var(--ax-blue-400); background:var(--ax-blue-050); border-color:var(--ax-blue-500) }
+#page-06 .pf2-dim.d-platform{ color:var(--ax-neu-text); background:var(--ax-neu-bg); border-color:var(--ax-neu-border) }
+#page-06 .pf2-dim.d-product{ color:var(--ax-neu-text); background:var(--ax-neu-bg); border-color:var(--ax-neu-border) }
+#page-06 .pf2-name{ font:600 13.5px/1.3 var(--ax-font-sans); color:var(--ax-text-primary); letter-spacing:var(--ax-tracking-snug); text-align:left }
+#page-06 .pf2-right{ margin-left:auto; display:flex; align-items:center; gap:8px; flex-shrink:0 }
+#page-06 .pf2-cnt{ font:600 11px/1 var(--ax-font-mono); color:var(--ax-text-muted); background:var(--ax-surface-2); border-radius:100px; padding:3px 9px }
+#page-06 .pf2-pill{ display:inline-flex; align-items:center; gap:5px; font:600 11px/1 var(--ax-font-mono); border-radius:100px; padding:3px 9px; white-space:nowrap }
+#page-06 .pf2-pill.active{ color:var(--ax-pos-text); background:var(--ax-pos-bg); border:1px solid var(--ax-pos-border) }
+#page-06 .pf2-pill.in-development{ color:var(--ax-text-muted); background:transparent; border:1px dashed var(--ax-border) }
+#page-06 .pf2-dot{ width:5px; height:5px; border-radius:50%; background:currentColor; opacity:.9 }
+#page-06 .pf2-body{ padding:0 2px 14px 22px }
+#page-06 .pf2-desc{ margin:0 0 8px; font:400 12.5px/1.6 var(--ax-font-sans); color:var(--ax-text-secondary) }
+#page-06 .pf2-ev{ font:400 13.5px/1.65 var(--ax-font-sans); color:var(--ax-text-secondary); font-style:italic; padding:9px 13px; background:var(--ax-surface-2); border-left:2px solid var(--ax-blue-100); border-radius:0 var(--ax-radius-sm) var(--ax-radius-sm) 0; margin-bottom:6px }
+#page-06 .pf2-ev.re{ border-left-color:var(--ax-border); font-style:normal; color:var(--ax-text-muted) }
+#page-06 .pf2-ev.no{ display:none }
+#page-06 .pf2-evl{ display:inline-block; font:600 11px/1 var(--ax-font-mono); font-style:normal; text-transform:uppercase; letter-spacing:.06em; color:var(--ax-text-muted); margin-right:8px }
+#page-06 .biz-bigcard.f-active .pf2-node[data-leaf][data-status="in-development"]{ display:none }
+#page-06 .biz-bigcard.f-dev .pf2-node[data-leaf][data-status="active"]{ display:none }
+#page-06 .biz-bigcard-sub{font:var(--ax-mono-section);letter-spacing:var(--ax-tracking-section);color:var(--ax-text-muted)}
 </style>
 </head>
 <body>
@@ -1485,6 +1526,7 @@ html[data-theme="dark"] .ticker-hero .form-pill{background:rgba(255,255,255,0.07
   <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07L11 5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07L13 19"/></symbol>
   <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
   <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M5 16v-2a7 7 0 0 1 7-7v0a7 7 0 0 1 7 7v2"/><path d="M12 8v6"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.27 6.96 8.73 5.05 8.73-5.05"/><path d="M12 22.08V12"/></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
   <symbol id="i-sort" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M7 12h10M11 18h2"/></symbol>
@@ -1528,6 +1570,11 @@ html[data-theme="dark"] .ticker-hero .form-pill{background:rgba(255,255,255,0.07
       <svg width="15" height="15"><use href="#i-network"/></svg>
       <span>섹터 정보</span>
       <span class="nav-badge">GICS</span>
+    </button>
+    <button class="nav-item" data-page="page-list-05" onclick="switchPage('page-list-05')">
+      <svg width="15" height="15"><use href="#i-box"/></svg>
+      <span>제품 포트폴리오</span>
+      <span class="nav-badge">PROD</span>
     </button>
   </nav>
   <div class="sb-status">
@@ -1622,6 +1669,18 @@ html[data-theme="dark"] .ticker-hero .form-pill{background:rgba(255,255,255,0.07
               <h2 class="mod-card-title">섹터 정보</h2>
               <p class="mod-card-desc">GICS 분류 기반으로 동종 기업과 산업군을 비교해 한 화면에 정리합니다.</p>
               <div class="mod-card-cta"><span>섹터 보기</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg></div>
+            </div>
+
+            <!-- 05 · 제품 포트폴리오 -->
+            <div class="mod-card" id="home-mod-portfolio" onclick="switchPage('page-list-05')" role="button" tabindex="0">
+              <div class="mod-card-icon">
+                <svg width="22" height="22"><use href="#i-box"/></svg>
+              </div>
+              <h2 class="mod-card-title">제품 포트폴리오</h2>
+              <p class="mod-card-desc">기업이 공시한 제품·파이프라인 구성을 사업 부문별로 정리해 한눈에 보여줍니다.</p>
+              <div class="mod-card-cta"><span>포트폴리오 보기</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
                 </svg></div>
             </div>
@@ -2755,6 +2814,134 @@ html[data-theme="dark"] .ticker-hero .form-pill{background:rgba(255,255,255,0.07
       </div>
     </div>
 
+    <!-- ══════════════════ PAGE-LIST-05 · 제품 포트폴리오 목록 ══════════════════ -->
+    <div id="page-list-05" class="page-panel page-panel--full">
+
+      <!-- 페이지 히어로 -->
+      <section class="list-hero">
+        <div class="list-hero-text">
+          <div class="list-hero-eyebrow">SCREEN 05 · PRODUCT PORTFOLIO</div>
+          <h1 class="list-hero-title">제품 포트폴리오</h1>
+          <p class="list-hero-desc">기업이 <abbr title="U.S. Securities and Exchange Commission">SEC</abbr>에 공시한 제품·파이프라인 구성을 정리합니다. 항목을 클릭하면 타이틀 카드와 AI 브리핑이 있는 세부 페이지로 이동합니다.</p>
+        </div>
+        <div class="list-prov-card">
+          <div class="list-prov-top">
+            <span class="pulse-dot"></span>
+            <span class="list-prov-label">DATA PROVENANCE</span>
+            <svg class="list-prov-icon" width="14" height="14"><use href="#i-shield"/></svg>
+          </div>
+          <div class="list-prov-num">100%</div>
+          <div class="list-prov-sub">SEC 원문 일치율 · AI 추정값 없음</div>
+        </div>
+      </section>
+
+      <!-- 필터 바 -->
+      <section class="list-filter-bar">
+        <div class="list-search-wrap">
+          <svg width="14" height="14"><use href="#i-search"/></svg>
+          <input type="text" placeholder="종목명 및 티커 검색" />
+        </div>
+        <div class="list-sort-wrap">
+          <svg width="14" height="14"><use href="#i-sort"/></svg>
+          <select>
+            <option>최신순</option>
+            <option>오래된순</option>
+            <option>종목순</option>
+            <option>공시 종류순</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- 결과 메타 -->
+      <div class="list-result-meta">
+        <div>
+          <span class="lm-strong num">1</span>
+          <span>건 표시</span>
+        </div>
+      </div>
+
+      <!-- 카드 리스트 -->
+      <section class="list-section">
+        <button class="ucard" data-accent="teal" id="list-lly-portfolio-card" onclick="switchPage('page-06')">
+          <div class="uc-hd">
+            <div class="uc-logo">L</div>
+            <div class="uc-id"><div class="uc-tk">LLY</div><div class="uc-co">Eli Lilly and Company</div></div>
+          </div>
+          <p class="uc-lead">단일 사업부문(인체용 의약품) 아래 4개 치료영역과 37개 제품을 공시 — 출시 26, 개발중 11.</p>
+          <div class="uc-mod"><div class="uc-chips"><span class="uc-chip">심장 대사 건강</span><span class="uc-chip">종양학</span><span class="uc-chip">면역학</span><span class="uc-chip">신경과학</span></div></div>
+          <div class="uc-ft"><span class="uc-fb">10-K</span><span class="uc-sep">·</span><span>Filed 2026.02.12</span><span class="uc-sep">·</span><span>SEC 원문 기준</span></div>
+        </button>
+      </section>
+
+      <!-- 페이지네이션 -->
+      <footer class="list-pg-footer">
+        <div class="pg-buttons">
+          <button class="pg-btn" disabled><svg width="12" height="12"><use href="#i-chevron-l"/></svg></button>
+          <button class="pg-btn num" aria-current="true">1</button>
+          <button class="pg-btn"><svg width="12" height="12"><use href="#i-chevron"/></svg></button>
+        </div>
+      </footer>
+
+    </div><!-- /#page-list-05 -->
+
+    <!-- ══════════════════ PAGE 06 · 제품 포트폴리오 세부 · LLY ══════════════════ -->
+    <div id="page-06" class="page-panel">
+      <div class="eyebrow-row fade-up d1">
+        <div class="eyebrow-left">
+          <button class="eyebrow-back" onclick="switchPage('page-list-05')"><svg width="12" height="12"><use href="#i-chevron-l"/></svg>목록으로</button>
+          <span class="eyebrow-sep">·</span>
+          <span class="eyebrow-screen-label">SCREEN 05 · PRODUCT PORTFOLIO</span>
+        </div>
+        <div class="eyebrow-right">
+          <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0000059478&amp;type=10-K&amp;dateb=&amp;owner=include&amp;count=40"
+             target="_blank" rel="noreferrer" class="btn-primary">
+            <svg width="13" height="13"><use href="#i-external"/></svg>EDGAR 원문 열기
+          </a>
+        </div>
+      </div>
+
+      <div class="business-redesign">
+      <div class="ticker-hero fade-up d1">
+        <div class="ticker-logo">L</div>
+        <div class="ticker-info">
+          <div class="ticker-row-1">
+            <span class="ticker-sym">LLY</span>
+            <span class="form-pill">10-K</span>
+          </div>
+          <div class="ticker-company">ELI LILLY AND COMPANY</div>
+        </div>
+      </div><!-- /종목 카드 -->
+
+      <!-- ── 제품 포트폴리오 (LLY 10-K Item 1·1A·7 추출) ──────────── -->
+      <div class="fade-up d2 seg-section biz-bigcard">
+        <div class="biz-bigcard-head">
+          <div class="biz-bigcard-sub">사업 부문별 제품 구성 · 출시 26 / 개발중 11</div>
+        </div>
+        <div class="ind-tabbar">
+          <div class="filter-tabs" role="tablist" aria-label="사업 부문 전환">
+            <button class="filter-tab active" data-tab="0" role="tab" aria-selected="true" tabindex="0">human pharmaceutical products<span class="ft-cnt">(37)</span></button>
+            <button class="filter-tab" data-tab="1" role="tab" aria-selected="false" tabindex="-1">동물 건강 (예시 · 가데이터)<span class="ft-cnt">(2)</span></button>
+          </div>
+          <label class="ind-tab-select">
+            <select id="pf06-tabSel" aria-label="사업 부문 선택">
+              <option value="0">human pharmaceutical products (37)</option>
+              <option value="1">동물 건강 (예시 · 가데이터) (2)</option>
+            </select>
+            <svg class="ind-tab-select-chev" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </label>
+        </div>
+        <div class="tab-panel" data-panel="0" role="tabpanel"><div class="pf2-segbox"><p class="pf2-segbox-desc">인체용 의약품의 발견, 개발, 제조 및 마케팅에 집중하는 회사의 단일 사업 부문입니다.</p><div class="pf2-segbox-ev"><span class="l">quote</span>“We discover, develop, manufacture, and market products in a single business segment--human pharmaceutical products.”</div><div class="pf2-segbox-ev re"><span class="l">reasoning</span>Item 1에서 회사의 단일 보고 부문으로 명시되었습니다.</div></div><div class="pf2-node open" data-status="active"><button class="pf2-row" type="button" aria-expanded="true" style="padding-left:2px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-therapeutic_area">치료 영역</span><span class="pf2-name">심장 대사 건강(Cardiometabolic Health)</span><span class="pf2-right"><span class="pf2-cnt">16</span></span></button><div class="pf2-body"><p class="pf2-desc">당뇨병, 심혈관 건강, 만성 신장 질환 및 비만 관리에 집중하는 치료 영역입니다.</p><div class="pf2-ev no"><span class="pf2-evl">quote</span>원문 인용 없음 (표 출처)</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표의 치료 영역(Therapeutic area) 아래에 기재되었습니다.</div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Basaglar</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">당뇨병 치료를 위한 장기 작용 인슐린 유사체입니다. 베링거인겔하임(Boehringer Ingelheim)과 협력하여 개발했습니다.</p><div class="pf2-ev no"><span class="pf2-evl">quote</span>원문 인용 없음 (표 출처)</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표에 기재되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Humalog</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">당뇨병 치료를 위한 인슐린 유사체입니다. Humalog Mix 75/25, U-100, U-200 등의 변체형을 포함합니다.</p><div class="pf2-ev no"><span class="pf2-evl">quote</span>원문 인용 없음 (표 출처)</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표에 기재되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Humulin </span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">당뇨병 치료를 위한 유전자 재조합 DNA 기원의 인슐린입니다. Humulin 70/30, Humulin N, Humulin R, Humulin U-500을 포함합니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Humulin , Humulin 70/30, Humulin N, Humulin R, and Humulin U-500 Human insulins of recombinant DNA origin for the treatment of diabetes.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표에 기재되었습니다. 원문의 끝부분 공백을 포함한 명칭을 유지했습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">insulin lispro</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">당뇨병 치료를 위한 인슐린 유사체입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Humalog Mix 75/25, Humalog U-100, Humalog U-200, Humalog Mix 50/50, insulin lispro, insulin lispro protamine, and insulin lispro mix 75/25 Human insulin analogs for the treatment of diabetes.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표에 활성 인슐린 제품으로 기재되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">insulin lispro protamine</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">당뇨병 치료를 위한 인슐린 유사체입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Humalog Mix 75/25, Humalog U-100, Humalog U-200, Humalog Mix 50/50, insulin lispro, insulin lispro protamine, and insulin lispro mix 75/25 Human insulin analogs for the treatment of diabetes.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표에 활성 인슐린 제품으로 기재되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">insulin lispro mix 75/25</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">당뇨병 치료를 위한 인슐린 유사체입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Humalog Mix 75/25, Humalog U-100, Humalog U-200, Humalog Mix 50/50, insulin lispro, insulin lispro protamine, and insulin lispro mix 75/25 Human insulin analogs for the treatment of diabetes.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표에 활성 인슐린 제품으로 기재되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Jardiance</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">제2형 당뇨병 치료, 심혈관 사망 위험 감소 및 만성 신장 질환(CKD) 치료제입니다. 미국에서는 복합제인 Glyxambi를 포함합니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“In the U.S., Jardiance includes the related combination product, Glyxambi.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표 및 주석 3의 문맥에 기재되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Mounjaro</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">제2형 당뇨병을 위한 GIP 및 GLP-1 수용체 작용제입니다. 유럽(EU)에서 박출률 보존 심부전 치료제로, 미국 및 유럽에서 소아 제2형 당뇨병 치료제로 승인되었습니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Tirzepatide (Mounjaro, Zepbound) Heart failure with preserved ejection fraction Approved Approved in the EU.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1에 출시된 브랜드로 기재되었으며, Item 7 파이프라인에서 추가 적응증 승인이 확인되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Trulicit y</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">제2형 당뇨병 치료 및 심혈관 위험 감소를 위한 치료제입니다. 2028년부터 시행되는 정부 설정 가격의 적용 대상입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Cardiometabolic Health products Trulicit y For the treatment of type 2 diabetes”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표의 명칭을 중간 공백을 포함하여 그대로 유지했습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Zepbound</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">비만 또는 과체중 및 수면 무호흡증 치료제입니다. 미국 외 지역에서는 Mounjaro 브랜드로 판매되는 관련 적응증 제품도 포함합니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Therapeutic area Products: Zepbound ... relevant indications marketed under Mounjaro in various markets outside the U.S.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1에 출시된 브랜드로 기재되었으며, Item 7에서 관련 적응증에 대한 승인 상태가 확인되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Synjardy</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">Jardiance 프랜차이즈 내 주요 제품으로 매출에 기여하고 있습니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Jardiance (including Glyxambi, Synjardy, and Trijardy XR) that collectively accounted for 82 percent of our total revenues in 2025.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1A에서 주요 판매 제품으로 명시되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Trijardy XR</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">Jardiance 프랜차이즈 내 주요 제품으로 매출에 기여하고 있습니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Jardiance (including Glyxambi, Synjardy, and Trijardy XR) that collectively accounted for 82 percent of our total revenues in 2025.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1A에서 주요 판매 제품으로 명시되었습니다.</div></div></div><div class="pf2-node" data-status="in-development" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Eloralintide</span><span class="pf2-right"><span class="pf2-pill in-development"><span class="pf2-dot"></span>개발중</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">비만 치료를 위한 임상 3상 단계의 후보 물질입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Eloralintide Obesity Phase 3 Phase 3 trial was initiated.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 7 임상 개발 파이프라인 표에 임상이 시작된 3상 후보 물질로 기재되었습니다.</div></div></div><div class="pf2-node" data-status="in-development" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Lepodisiran</span><span class="pf2-right"><span class="pf2-pill in-development"><span class="pf2-dot"></span>개발중</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">죽상경화성 심혈관 질환 치료를 위한 임상 3상 단계의 후보 물질입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Lepodisiran Atherosclerotic cardiovascular disease Phase 3 Phase 3 trial is ongoing.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 7 임상 개발 파이프라인 표에 3상 후보 물질로 기재되었습니다.</div></div></div><div class="pf2-node" data-status="in-development" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Muvalaplin</span><span class="pf2-right"><span class="pf2-pill in-development"><span class="pf2-dot"></span>개발중</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">죽상경화성 심혈관 질환 치료를 위한 임상 3상 단계의 후보 물질입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Muvalaplin Atherosclerotic cardiovascular disease Phase 3 Phase 3 trial was initiated.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 7 임상 개발 파이프라인 표에 임상이 시작된 3상 후보 물질로 기재되었습니다.</div></div></div><div class="pf2-node" data-status="in-development" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Retatrutide</span><span class="pf2-right"><span class="pf2-pill in-development"><span class="pf2-dot"></span>개발중</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">제2형 당뇨병, 비만, 심혈관/신장 결과 개선을 위한 임상 3상 단계의 후보 물질입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Retatrutide Cardiovascular / renal outcomes Phase 3 Phase 3 trials are ongoing.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 7 임상 개발 파이프라인 표에 다중 적응증 3상 후보 물질로 기재되었습니다.</div></div></div></div></div><div class="pf2-node" data-status="active"><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:2px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-therapeutic_area">치료 영역</span><span class="pf2-name">종양학(Oncology)</span><span class="pf2-right"><span class="pf2-cnt">10</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">위암, 대장암, 폐암, 유방암을 포함한 다양한 전이성 및 진행성 암에 집중하는 치료 영역입니다.</p><div class="pf2-ev no"><span class="pf2-evl">quote</span>원문 인용 없음 (표 출처)</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표의 치료 영역 아래에 기재되었습니다.</div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Cyramza</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">진행성 또는 전이성 위암, 비소세포폐암(NSCLC), 대장암 및 간세포암 치료제입니다.</p><div class="pf2-ev no"><span class="pf2-evl">quote</span>원문 인용 없음 (표 출처)</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표에 기재되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Erbitux</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">특정 유형의 대장암 및 두경부암 치료제입니다.</p><div class="pf2-ev no"><span class="pf2-evl">quote</span>원문 인용 없음 (표 출처)</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표에 기재되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Inluriyo</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">ER 양성 유방암 치료제입니다. 미국, 유럽 및 일본에서 진행성 질환 치료제로 승인되었으며, 보조 요법 유방암에 대해 임상 3상이 진행 중입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Imlunestrant (Inluriyo) ER+, HER2-, ESR1-mutated advanced or metastatic breast cancer Approved Approved in the U.S., the EU, and Japan.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 7의 승인 상태를 통해 Item 1에 기재된 판매용 제품의 활성 상태가 확인되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Jaypirca</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">재발성 또는 불응성 만성 림프구성 백혈병/소림프구성 림프종(CLL/SLL) 및 외투세포 림프종 치료제입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Pirtobrutinib (Jaypirca) Chronic lymphocytic leukemia Approved Full approval in the U.S., the EU, and Japan.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1에 기재된 판매용 제품으로, Item 7에서 광범위한 승인이 확인되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Retevmo</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">전이성 비소세포폐암, 갑상선 수질암 및 RET 유전자 융합 양성 갑상선암 치료제입니다.</p><div class="pf2-ev no"><span class="pf2-evl">quote</span>원문 인용 없음 (표 출처)</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표에 기재되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Tyvyt</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">중국 내 호지킨 림프종, 비소세포폐암, 간세포암, 식도편평세포암 및 위암 치료제입니다. Alimta와 병용하여 사용됩니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Oncology products Tyvyt In collaboration with Innovent Biologics, Inc.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표에 기재되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Verzenio</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">전이성 및 조기 유방암 치료제입니다. 2028년부터 시행되는 정부 설정 가격의 적용 대상입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“In January 2026, HHS selected Trulicity and Verzenio as additional medicines subject to government-set prices to be effective in 2028.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표에 기재되었으며, Item 7에서 추가적인 상업적 상태가 확인되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Alimta</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">비편평 비소세포폐암의 1차 치료를 위해 병용 요법으로 사용되는 항암제입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“for the first-line treatment of non-squamous NSCLC in combination with Alimta and another agent”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1에 치료 구성 요소로 기재되었으며 항암 제품으로 명시되었습니다.</div></div></div><div class="pf2-node" data-status="in-development" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Olomorasib</span><span class="pf2-right"><span class="pf2-pill in-development"><span class="pf2-dot"></span>개발중</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">1차 KRAS G12C 변이 양성 비소세포폐암 및 보조 요법 비소세포폐암을 위한 임상 3상 단계의 후보 물질입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Olomorasib (3) 1L KRAS G12C+ NSCLC Phase 3 Phase 3 trial is ongoing.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 7 임상 개발 파이프라인 표에 3상 후보 물질로 기재되었습니다.</div></div></div><div class="pf2-node" data-status="in-development" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Sofetabart mipitecan</span><span class="pf2-right"><span class="pf2-pill in-development"><span class="pf2-dot"></span>개발중</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">백금 저항성 난소암을 위한 임상 3상 단계의 후보 물질(FRα ADC)입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Sofetabart mipitecan (FRα ADC) (3) Platinum-resistant ovarian cancer Phase 3 Phase 3 trial was initiated.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 7 임상 개발 파이프라인 표에 3상 후보 물질로 기재되었습니다.</div></div></div></div></div><div class="pf2-node" data-status="active"><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:2px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-therapeutic_area">치료 영역</span><span class="pf2-name">면역학(Immunology)</span><span class="pf2-right"><span class="pf2-cnt">4</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">아토피 피부염, 류마티스 관절염 및 원형 탈모증을 포함한 자가면역 및 염증성 질환에 집중하는 치료 영역입니다.</p><div class="pf2-ev no"><span class="pf2-evl">quote</span>원문 인용 없음 (표 출처)</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표의 치료 영역 아래에 기재되었습니다.</div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Ebglyss</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">중등도에서 중증의 아토피 피부염 치료제입니다. 레브리키주맙(Lebrikizumab) 성분은 Item 7에 따라 추가 적응증을 위한 임상이 진행 중입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Immunology products Ebglyss For the treatment of adult and adolescent patients 12 years or older with moderate to severe atopic dermatitis”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1에 기재된 판매 브랜드로, 개발 중인 레브리키주맙에 대한 정보를 포함합니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Olumiant</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">류마티스 관절염, 아토피 피부염, 원형 탈모증 및 코로나19 입원 성인 환자 치료제입니다.</p><div class="pf2-ev no"><span class="pf2-evl">quote</span>원문 인용 없음 (표 출처)</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표에 기재되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Omvoh</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">성인의 궤양성 대장염 및 크론병 치료를 위해 승인된 치료제입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Mirikizumab (Omvoh) Crohn&#x27;s disease Approved Approved in the U.S., the EU, and Japan.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 7의 승인 상태를 통해 Item 1에 기재된 판매 제품의 활성 상태가 확인되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Taltz</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">판상 건선, 건선성 관절염, 강직성 척추염 및 비방사선학적 축성 척추관절염 치료제입니다.</p><div class="pf2-ev no"><span class="pf2-evl">quote</span>원문 인용 없음 (표 출처)</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표에 기재되었습니다.</div></div></div></div></div><div class="pf2-node" data-status="active"><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:2px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-therapeutic_area">치료 영역</span><span class="pf2-name">신경과학(Neuroscience)</span><span class="pf2-right"><span class="pf2-cnt">5</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">편두통 예방 및 알츠하이머병을 포함한 신경계 질환에 집중하는 치료 영역입니다.</p><div class="pf2-ev no"><span class="pf2-evl">quote</span>원문 인용 없음 (표 출처)</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표의 치료 영역 아래에 기재되었습니다.</div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Emgality</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">성인의 편두통 예방 및 삽화성 군발 두통 치료제입니다.</p><div class="pf2-ev no"><span class="pf2-evl">quote</span>원문 인용 없음 (표 출처)</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 제품 표에 기재되었습니다.</div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Kisunla</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">아밀로이드 병증이 확인된 초기 유증상 알츠하이머병 성인 환자 치료제입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Donanemab (Kisunla) Early Alzheimer&#x27;s disease Approved Approved in the U.S., the EU, and Japan.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 7의 승인 상태를 통해 Item 1에 기재된 판매 제품의 활성 상태가 확인되었습니다.</div></div></div><div class="pf2-node" data-status="in-development" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Brenipatide</span><span class="pf2-right"><span class="pf2-pill in-development"><span class="pf2-dot"></span>개발중</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">알코올 사용 장애 치료를 위한 임상 3상 단계의 후보 물질입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Brenipatide Alcohol use disorder Phase 3 Phase 3 trial was initiated.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 7 임상 개발 파이프라인 표에 임상이 시작된 3상 후보 물질로 기재되었습니다.</div></div></div><div class="pf2-node" data-status="in-development" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Ixo-vec</span><span class="pf2-right"><span class="pf2-pill in-development"><span class="pf2-dot"></span>개발중</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">습성 연령 관련 황반변성을 위한 임상 3상 단계의 후보 물질입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Ixo-vec Wet age‑related macular degeneration Phase 3 Acquired in the acquisition of Adverum Biotechnologies, Inc.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 7 임상 개발 파이프라인 표에 3상 후보 물질로 기재되었습니다.</div></div></div><div class="pf2-node" data-status="in-development" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Remternetug</span><span class="pf2-right"><span class="pf2-pill in-development"><span class="pf2-dot"></span>개발중</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">알츠하이머병을 위한 임상 3상 단계의 후보 물질입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Remternetug Pre-clinical/MCI Alzheimer&#x27;s disease Phase 3 Phase 3 trials are ongoing.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 7 임상 개발 파이프라인 표에 3상 후보 물질로 기재되었습니다.</div></div></div></div></div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:2px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-platform">플랫폼</span><span class="pf2-name">LillyDirect</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">제3자 약국에서 조제된 일부 Lilly 의약품의 배송 서비스를 제공하는 환자 직접 연계 디지털 헬스케어 플랫폼입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“In certain jurisdictions, we utilize LillyDirect, our direct-to-patient digital health care platform, to provide delivery of select Lilly medicines dispensed by third-party pharmacies to patients.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1에서 특정 디지털 헬스케어 플랫폼 서비스로 확인되었습니다.</div></div></div><div class="pf2-node" data-status="in-development" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:2px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Insulin efsitora alfa</span><span class="pf2-right"><span class="pf2-pill in-development"><span class="pf2-dot"></span>개발중</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">제2형 당뇨병 치료를 위한 후보 물질로, 현재 미국, 유럽 및 일본에서 규제 당국의 심사를 받고 있습니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Insulin efsitora alfa has been submitted for regulatory review in the U.S., the EU, and Japan for the treatment of type 2 diabetes.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1의 규제 심사 상태를 근거로 개발 중 단계로 분류되었습니다.</div></div></div><div class="pf2-node" data-status="in-development" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:2px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">Orforglipron</span><span class="pf2-right"><span class="pf2-pill in-development"><span class="pf2-dot"></span>개발중</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">비만 또는 과체중 및 제2형 당뇨병 치료를 위한 후보 물질로, FDA로부터 국립 우선순위 바우처(Commissioner&#x27;s National Priority Voucher)를 부여받았습니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Orforglipron has been submitted for regulatory review in the U.S., the EU, and Japan for the treatment of obesity or overweight”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>Item 1 및 Item 7에 명시된 규제 심사 제출 정보를 근거로 개발 중 단계로 분류되었습니다.</div></div></div></div>
+        <div class="tab-panel" data-panel="1" role="tabpanel" hidden><div class="pf2-segbox"><p class="pf2-segbox-desc">데모용 임시 세그먼트입니다. 세그먼트가 2개 이상일 때의 위계를 보여주기 위한 예시이며 실제 데이터가 아닙니다.</p><div class="pf2-segbox-ev re"><span class="l">근거</span>데모용 예시 세그먼트</div></div><div class="pf2-node open" data-status="active"><button class="pf2-row" type="button" aria-expanded="true" style="padding-left:2px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-therapeutic_area">치료 영역</span><span class="pf2-name">반려동물 건강 (예시)</span><span class="pf2-right"><span class="pf2-cnt">2</span></span></button><div class="pf2-body"><p class="pf2-desc">예시 치료 영역입니다.</p><div class="pf2-ev no"><span class="pf2-evl">quote</span>원문 인용 없음 (표 출처)</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>예시</div><div class="pf2-node" data-status="active" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">예시 제품 A</span><span class="pf2-right"><span class="pf2-pill active"><span class="pf2-dot"></span>출시</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">데모용 예시 제품입니다.</p><div class="pf2-ev no"><span class="pf2-evl">quote</span>원문 인용 없음 (표 출처)</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>예시</div></div></div><div class="pf2-node" data-status="in-development" data-leaf><button class="pf2-row" type="button" aria-expanded="false" style="padding-left:20px"><svg class="pf2-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="pf2-dim d-product">제품</span><span class="pf2-name">예시 제품 B</span><span class="pf2-right"><span class="pf2-pill in-development"><span class="pf2-dot"></span>개발중</span></span></button><div class="pf2-body" hidden><p class="pf2-desc">데모용 예시 개발 후보입니다.</p><div class="pf2-ev"><span class="pf2-evl">quote</span>“Example Phase 3 trial is ongoing.”</div><div class="pf2-ev re"><span class="pf2-evl">reasoning</span>예시</div></div></div></div></div></div>
+      </div>
+
+      <div class="ax-screen-foot fade-up d4">
+        <span>© Equity Brief POC</span>
+        <span class="footer-dot">·</span>
+        <span>제품·파이프라인은 LLY 10-K Item 1·1A·7 원문 추출(인용 포함) 기준입니다.</span>
+      </div>
+      </div>
+    </div><!-- /#page-06 -->
+
   </div><!-- /content-scroll -->
 </div><!-- /main-wrap -->
 </div><!-- /app-shell -->
@@ -2779,8 +2966,10 @@ var pageInited  = { 'page-01':true,'page-home':true,'page-list':true,'page-list-
 var PAGE_PARENT = {
   'page-list':'page-list','page-list-02':'page-list-02',
   'page-list-03':'page-list-03','page-list-04':'page-list-04',
+  'page-list-05':'page-list-05',
   'page-01':'page-list','page-02':'page-list-02',
-  'page-03':'page-list-03','page-04':'page-list-04'
+  'page-03':'page-list-03','page-04':'page-list-04',
+  'page-06':'page-list-05'
 };
 
 
@@ -2790,10 +2979,12 @@ var PAGE_META = {
   'page-list-02': { crumbs: [['대시보드','page-home'], '공시 스토리'] },
   'page-list-03': { crumbs: [['대시보드','page-home'], '사업 한눈 요약'] },
   'page-list-04': { crumbs: [['대시보드','page-home'], '섹터 정보'] },
+  'page-list-05': { crumbs: [['대시보드','page-home'], '제품 포트폴리오'] },
   'page-01': { crumbs: [['대시보드','page-home'], ['공시 한줄 요약','page-list'], 'COF · 8-K'] },
   'page-02': { crumbs: [['대시보드','page-home'], ['공시 스토리','page-list-02'], 'COF · 8-K'] },
   'page-03': { crumbs: [['대시보드','page-home'], ['사업 한눈 요약','page-list-03'], 'AAPL · Apple Inc.'] },
   'page-04': { crumbs: [['대시보드','page-home'], ['섹터 정보','page-list-04'], 'AAPL · Apple Inc.'] },
+  'page-06': { crumbs: [['대시보드','page-home'], ['제품 포트폴리오','page-list-05'], 'LLY · 10-K'] },
 };
 
 function openMobileNav(){
@@ -2864,6 +3055,30 @@ function updateBreadcrumb(pageId) {
 }
 
 function initPage(pageId) {
+  if (pageId === 'page-06') initPortfolio();
+}
+function initPortfolio() {
+  var root = document.getElementById('page-06'); if (!root) return;
+  var tabs=root.querySelectorAll('.filter-tab'), panels=root.querySelectorAll('.tab-panel');
+  var sel=root.querySelector('#pf06-tabSel');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      var id=t.getAttribute('data-tab');
+      tabs.forEach(function(x){var on=x===t; x.classList.toggle('active',on); x.setAttribute('aria-selected',on?'true':'false'); x.tabIndex=on?0:-1;});
+      panels.forEach(function(p){ if(p.getAttribute('data-panel')===id){p.removeAttribute('hidden');}else{p.setAttribute('hidden','');} });
+      if(sel) sel.value=id;
+    });
+  });
+  if(sel) sel.addEventListener('change',function(){
+    var btn=root.querySelector('.filter-tab[data-tab="'+sel.value+'"]'); if(btn) btn.click();
+  });
+  root.querySelectorAll('.pf2-row').forEach(function(r){
+    r.addEventListener('click', function(){
+      var node=r.parentElement, b=node.querySelector('.pf2-body'), open=b.hasAttribute('hidden');
+      if(open){b.removeAttribute('hidden');}else{b.setAttribute('hidden','');}
+      node.classList.toggle('open',open); r.setAttribute('aria-expanded',open?'true':'false');
+    });
+  });
 }
 
 /* ════════════════════════════════════════════════
