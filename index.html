@@ -590,7 +590,7 @@ html[data-theme="dark"] .list-search-wrap:focus-within{box-shadow:var(--ax-shado
 .list-sort-wrap select:hover{color:var(--ax-text-primary)}
 .list-result-meta{padding:var(--ax-space-5) var(--ax-gutter-x);display:flex;align-items:center;justify-content:space-between;background:var(--ax-bg);font-size:var(--ax-fs-12);color:var(--ax-text-secondary)}
 .list-result-meta .lm-strong{font-weight:600;color:var(--ax-text-primary)}
-.list-section{padding:0 var(--ax-gutter-x) var(--ax-space-20);display:flex;flex-direction:column;gap:var(--ax-space-4);background:var(--ax-bg)}
+.list-section{padding:0 var(--ax-gutter-x) var(--ax-space-20);display:flex;flex-direction:column;gap:var(--ax-space-6);background:var(--ax-bg)}
 .list-pg-footer{padding:var(--ax-space-10) var(--ax-gutter-x);display:flex;align-items:center;justify-content:flex-end;flex-shrink:0;background:var(--ax-bg)}
 .pg-buttons{display:flex;align-items:center;gap:var(--ax-space-2)}
 .pg-btn{min-width:32px;height:32px;padding:0 var(--ax-space-3);display:flex;align-items:center;justify-content:center;border-radius:var(--ax-radius-sm);border:none;font:var(--ax-body-sm);font-variant-numeric:tabular-nums;color:var(--ax-text-secondary);background:transparent;cursor:pointer;transition:all var(--ax-dur-fast) var(--ax-ease)}
@@ -1496,6 +1496,24 @@ html[data-theme="dark"] .ticker-hero .form-pill{background:var(--ax-on-navy-07);
 @media (max-width:759px){
   .seg-section, .emp-section{background:none;border:none;border-radius:0;padding:0}
 }
+
+/* ─── 모바일 · 탭형 세부 카드 컴포넌트 규칙 ───────────────────────
+   원칙: 모바일에서 세그먼트 드롭다운(ind-tabbar)은 카드 바깥 전체폭, 내용만 박스로 분리.
+   · 사업 한눈요약: seg-megacard가 자체 박스 → seg-section flat 그대로(추가 불필요)
+   · 제품 포트폴리오: pf2 트리가 flat이라 내용 컨테이너 필요 → tab-panel을 박스로, '분류 구조' 타이틀 유지 */
+@media (max-width:759px){
+  .pp-detail .tab-panel{background:var(--ax-surface);border:1px solid var(--ax-border);border-radius:var(--ax-radius-xl);padding:var(--ax-space-8)}
+}
+
+/* ─── 모바일: 사업 한눈 요약 카드 간격 16 균등 + 보조타이틀↔데이터 간격 확보 ─── */
+@media (max-width:759px){
+  .business-redesign .sgc-list{gap:var(--ax-space-8);margin-bottom:0}
+  .business-redesign .emp-grid{gap:var(--ax-space-8)}
+  .business-redesign .emp-section{margin-top:var(--ax-space-8)}
+  .business-redesign .seg-section.biz-bigcard{margin-bottom:0}
+  .business-redesign .emp-card-title{margin-bottom:var(--ax-space-6)}
+  .business-redesign .prod-kpi-lbl{margin-bottom:var(--ax-space-6)}
+}
 .ind-tab-select{position:relative;display:none;align-items:center;height:34px;width:100%;border:1px solid var(--ax-border);border-radius:var(--ax-radius-sm);background:var(--ax-surface);transition:border-color .15s,box-shadow .15s}
 .ind-tab-select:focus-within{border-color:var(--ax-blue-500);box-shadow:var(--ax-shadow-e8)}
 .ind-tab-select select{appearance:none;-webkit-appearance:none;border:none;outline:none;background:transparent;cursor:pointer;height:100%;width:100%;padding:0 var(--ax-space-16) 0 var(--ax-space-6);font:500 13px/1 var(--ax-font-sans);color:var(--ax-text-primary)}
@@ -1510,6 +1528,14 @@ html[data-theme="dark"] .ticker-hero .form-pill{background:var(--ax-on-navy-07);
 /* ─── 모바일: 드롭다운(ind-tabbar) 섹션 간격 대칭 16px ─── */
 @media (max-width:759px){
   .sector-redesign .ind-tabbar, .business-redesign .ind-tabbar{margin:var(--ax-space-8) 0}
+}
+/* ─── 모바일: 세부 카드 타이틀↔메인 내용 간격 통일(12px) ─── */
+@media (max-width:759px){
+  .summary-redesign .section-header,
+  .summary-redesign .tags-header,
+  .business-redesign .biz-bigcard-head,
+  .business-redesign .emp-bighead,
+  .sector-redesign .biz-bigcard-head{ margin-bottom:var(--ax-space-6) }
 }
 
 /* ===== 제품 포트폴리오(page-06) · pf2 트리 · .pp-detail 스코프 ===== */
